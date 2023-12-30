@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster"
+
 
 import { Home } from "./_root/Pages";
 import RootLayout from "./_root/RootLayout";
@@ -23,6 +25,9 @@ function App() {
           <Route index element={<Home />} />
         </Route>
       </Routes>
+
+      <Toaster />
+
     </main>
   );
 }
