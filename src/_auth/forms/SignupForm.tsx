@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import Loader from "@/components/shared/Loader";
 import { Link } from "react-router-dom";
+import { createUserAccount } from "@/lib/appwrite/api";
 
 function SignupForm() {
   const isLoading = false;
@@ -32,10 +33,11 @@ function SignupForm() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof SignupValidation>) {
+  async function onSubmit(values: z.infer<typeof SignupValidation>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    const newUser = await createUserAccount(values);
+    console.log(newUser);
   }
   return (
     <Form {...form}>
